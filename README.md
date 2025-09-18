@@ -93,9 +93,6 @@ Open in your browser:
 
 <img src="http://image/todo-list-app.png" height="60" width="60" >
 
-![To-Do List App Screenshot](image/todo-list-app.png)
-
-
 
 
 ## 📌 Future Improvements
