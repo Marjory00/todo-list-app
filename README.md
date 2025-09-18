@@ -91,7 +91,7 @@ Open in your browser:
 
 
 <p align="center">
-  <img src="screenshots/todo-list-app.png" alt="To-Do List App Screenshot" width="500"/>
+  <img src="image/todo-list-app.png" alt="To-Do List App Screenshot" width="500"/>
 </p>
 
 
