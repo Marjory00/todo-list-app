@@ -91,7 +91,7 @@ Open in your browser:
 ## 📸 Screenshots
 
 ![To-Do List App Screenshot](./image/todo-list-app.png)
-
+<img src="./image/todo-list-app.png" alt="">
 
 
 ## 📌 Future Improvements
