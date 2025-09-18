@@ -1,44 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+import "./App.css";
 
-function TaskList({ tasks, deleteTask, toggleComplete, editTask }) {
-  const [editId, setEditId] = useState(null);
-  const [newText, setNewText] = useState("");
+function App() {
+  const [tasks, setTasks] = useState([]);
 
-  const handleEdit = (id, text) => {
-    setEditId(id);
-    setNewText(text);
+  // Load tasks from localStorage
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (storedTasks) setTasks(storedTasks);
+  }, []);
+
+  // Save tasks to localStorage whenever tasks change
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const addTask = (text) => {
+    setTasks([...tasks, { id: Date.now(), text, completed: false }]);
   };
 
-  const handleSave = (id) => {
-    editTask(id, newText);
-    setEditId(null);
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const toggleComplete = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  const editTask = (id, newText) => {
+    setTasks(
+      tasks.map((task) => (task.id === id ? { ...task, text: newText } : task))
+    );
   };
 
   return (
-    <ul className="task-list">
-      {tasks.map((task) => (
-        <li key={task.id} className={task.completed ? "completed" : ""}>
-          {editId === task.id ? (
-            <>
-              <input
-                type="text"
-                value={newText}
-                onChange={(e) => setNewText(e.target.value)}
-              />
-              <button onClick={() => handleSave(task.id)}>Save</button>
-              <button onClick={() => setEditId(null)}>Cancel</button>
-            </>
-          ) : (
-            <>
-              <span onClick={() => toggleComplete(task.id)}>{task.text}</span>
-              <button onClick={() => handleEdit(task.id, task.text)}>Edit</button>
-              <button onClick={() => deleteTask(task.id)}>Delete</button>
-            </>
-          )}
-        </li>
-      ))}
-    </ul>
+    <div className="app">
+      <h1>📝 To-Do List</h1>
+      <TaskForm addTask={addTask} />
+      <TaskList
+        tasks={tasks}
+        deleteTask={deleteTask}
+        toggleComplete={toggleComplete}
+        editTask={editTask}
+      />
+    </div>
   );
 }
 
-export default TaskList;
+export default App;

@@ -38,19 +38,25 @@ This project was created as a **starter React app** to practice:
 
 ## 📂 Project Structure
 
+```
 todo-list-app/
-│── public/
-│── src/
-│ ├── components/
-│ │ ├── Task.js
-│ │ ├── TaskList.js
-│ │ └── TaskForm.js
-│ ├── App.js
-│ ├── index.js
-│ └── App.css
-│── package.json
-│── README.md
-
+├─ public/
+│ ├─ index.html # Main HTML file
+│ └─ favicon.ico # Site favicon
+│
+├─ src/
+│ ├─ components/
+│ │ ├─ TaskForm.js # Component to add new tasks
+│ │ ├─ TaskList.js # Component to display list of tasks
+│ │ └─ Task.js # Optional: single task component
+│ │
+│ ├─ App.js # Main app component
+│ ├─ App.css # Styling for the app
+│ └─ index.js # Entry point for React
+│
+├─ package.json # Project dependencies & scripts
+└─ README.md # Project documentation
+```
 
 ---
 
@@ -88,13 +94,16 @@ Open in your browser:
 
 ## 📌 Future Improvements
 
-    Task categories & filtering
+Task categories & filtering
 
-    Due dates and reminders
+Due dates and reminders
 
-    Dark mode toggle
+Dark mode toggle
 
-    Backend integration (Express.js + MongoDB)
+Backend integration (Express.js + MongoDB)
+
+Drag-and-drop task ordering
+
 
 ## 👩‍💻 Author
 
