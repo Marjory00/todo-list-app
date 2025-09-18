@@ -89,7 +89,12 @@ Open in your browser:
 
 ## 📸 Screenshots
 
-(Add screenshots or GIFs here later when UI is ready)
+## 📸 Screenshots
+
+<p align="center">
+  <img src="screenshots/todo-app.png" alt="To-Do List App Screenshot" width="500"/>
+</p>
+
 
 
 ## 📌 Future Improvements
