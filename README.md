@@ -90,7 +90,9 @@ Open in your browser:
 ## 📸 Screenshots
 
 
-![To-Do List App Screenshot](public/image/todo-list-app-screenshot.png)
+<p align="center">
+  <img src="screenshots/todo-list-app.png" alt="To-Do List App Screenshot" width="500"/>
+</p>
 
 
 
