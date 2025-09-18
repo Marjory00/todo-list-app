@@ -87,12 +87,10 @@ Open in your browser:
 
     http://localhost:3000
 
+
 ## 📸 Screenshots
 
-
-<p align="center">
-  <img src="image/todo-list-app.png" alt="To-Do List App Screenshot" width="500"/>
-</p>
+![To-Do List App Screenshot](image/todo-list-app-screenshot.png)
 
 
 
