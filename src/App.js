@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+function TaskList({ tasks, deleteTask, toggleComplete, editTask }) {
+  const [editId, setEditId] = useState(null);
+  const [newText, setNewText] = useState("");
+
+  const handleEdit = (id, text) => {
+    setEditId(id);
+    setNewText(text);
+  };
+
+  const handleSave = (id) => {
+    editTask(id, newText);
+    setEditId(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ul className="task-list">
+      {tasks.map((task) => (
+        <li key={task.id} className={task.completed ? "completed" : ""}>
+          {editId === task.id ? (
+            <>
+              <input
+                type="text"
+                value={newText}
+                onChange={(e) => setNewText(e.target.value)}
+              />
+              <button onClick={() => handleSave(task.id)}>Save</button>
+              <button onClick={() => setEditId(null)}>Cancel</button>
+            </>
+          ) : (
+            <>
+              <span onClick={() => toggleComplete(task.id)}>{task.text}</span>
+              <button onClick={() => handleEdit(task.id, task.text)}>Edit</button>
+              <button onClick={() => deleteTask(task.id)}>Delete</button>
+            </>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 }
 
-export default App;
+export default TaskList;
